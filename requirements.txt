@@ -1,0 +1,12 @@
+# TODO: keep only what your code actually imports, then pin versions
+# (run `pip freeze | grep -i <name>` in your working environment to get versions)
+
+pypdf
+python-dotenv
+numpy
+pytest
+# embeddings / vector DB / LLM: uncomment or replace with what your code uses
+# sentence-transformers
+# chromadb
+# faiss-cpu
+# openai
