@@ -15,6 +15,7 @@ Only edit files inside your assigned team folder and push to your team's branch.
 | `team-database` | `team-database` | `database/` |
 | `team-pipeline` | `team-pipeline` | `pipeline/` |
 
+> **Documentation Rule:** Keep component-specific guides and code walkthroughs inside your team's `docs/` subfolder (`pipeline/docs/` or `database/docs/`). Reserve the root `docs/` folder strictly for high-level, cross-team system architecture.
 ---
 
 ## 2. How to Submit Your Work
@@ -41,7 +42,15 @@ Clone the repository to your computer (use SSH if you have SSH keys configured, 
     git clone https://github.com/Navdeep-Organisation/rag-project.git
 
     cd rag-project
+Create and activate your virtual environment using `.venv` or `venv` (already ignored in `.gitignore`—do not use custom folder names):
 
+    python -m venv .venv
+
+    # Activate on Windows:
+    .venv\Scripts\activate
+
+    # Activate on Mac/Linux:
+    source .venv/bin/activate
 #### Step 1: Check and Switch to Your Team Branch
 Before making any edits, verify which branch you are on and sync with your team's remote branch:
 
@@ -102,9 +111,20 @@ Once all methods are evaluated and the best-performing one is chosen:
 
 ---
 
+#### Step 4: Syncing Updates from `main` into Your Team Branch
+Whenever `main` is updated (such as when a PR is merged), pull those updates into your team branch so you don't fall behind:
+
+    git checkout team-pipeline
+    git fetch origin
+    git merge origin/main
+    git push origin team-pipeline
+---
+
 ## 3. Ground Rules
 * **Never push directly to `main`:** Develop and compare all methods on `team-database` or `team-pipeline`.
+* **Use standard virtual environment names:** Always name your virtual environment `venv` or `.venv` so `.gitignore` automatically excludes it.
 * **Keep sensitive and heavy files out of Git:** Never commit `.env` files, API keys, PDFs, or vector database files.
 * **Write clear commit messages:** Briefly summarize what you changed (e.g., `"Add Unstructured document loader"`).
 * **Keep your PR up to date:** If GitHub displays an **Update branch** button on your Pull Request, click it.
+
 * **Ask before guessing:** If you get stuck with Git, ask in the team group before running unfamiliar commands.
