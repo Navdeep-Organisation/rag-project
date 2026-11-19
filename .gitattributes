@@ -1,0 +1,27 @@
+* text=auto
+
+# Binary document formats
+*.PDF	binary
+*.pdf	binary
+*.doc	binary
+*.DOC	binary
+*.docx	binary
+*.DOCX	binary
+*.docm	binary
+*.DOCM	binary
+*.dot	binary
+*.DOT	binary
+*.dotx	binary
+*.DOTX	binary
+*.dotm	binary
+*.DOTM	binary
+*.ods	binary
+*.ODS	binary
+*.odf	binary
+*.ODF	binary
+*.odt	binary
+*.ODT	binary
+
+# Text-based rich text
+*.rtf	diff=astextplain
+*.RTF	diff=astextplain

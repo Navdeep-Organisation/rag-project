@@ -15,6 +15,8 @@ Only edit files inside your assigned team folder and push to your team's branch.
 | `team-database` | `team-database` | `database/` |
 | `team-pipeline` | `team-pipeline` | `pipeline/` |
 
+> **Shared Sample Data (`sample_data/`):** Keep lightweight shared test files (`.txt`, `.md`, `.pdf`, `.csv`, `.docx`) in the root `sample_data/` directory so both `pipeline/` and `database/` can access them from a single path. Coordinate before modifying or deleting existing files inside `sample_data/`.
+
 > **Documentation Rule:** Keep component-specific guides and code walkthroughs inside your team's `docs/` subfolder (`pipeline/docs/` or `database/docs/`). Reserve the root `docs/` folder strictly for high-level, cross-team system architecture.
 ---
 
@@ -51,6 +53,17 @@ Create and activate your virtual environment using `.venv` or `venv` (already ig
 
     # Activate on Mac/Linux:
     source .venv/bin/activate
+
+Install dependencies and configure your local environment variables from `.env.example`:
+
+    pip install -r requirements.txt
+
+    # Windows:
+    copy .env.example .env
+
+    # Mac/Linux:
+    cp .env.example .env
+    
 #### Step 1: Check and Switch to Your Team Branch
 Before making any edits, verify which branch you are on and sync with your team's remote branch:
 
@@ -123,7 +136,7 @@ Whenever `main` is updated (such as when a PR is merged), pull those updates int
 ## 3. Ground Rules
 * **Never push directly to `main`:** Develop and compare all methods on `team-database` or `team-pipeline`.
 * **Use standard virtual environment names:** Always name your virtual environment `venv` or `.venv` so `.gitignore` automatically excludes it.
-* **Keep sensitive and heavy files out of Git:** Never commit `.env` files, API keys, PDFs, or vector database files.
+- **Keep sensitive and heavy files out of Git:** Never commit `.env` files, API keys, vector database files, or large raw datasets (keep only small shared test files in `sample_data/`).
 * **Write clear commit messages:** Briefly summarize what you changed (e.g., `"Add Unstructured document loader"`).
 * **Keep your PR up to date:** If GitHub displays an **Update branch** button on your Pull Request, click it.
 
